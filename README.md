@@ -1,26 +1,20 @@
-- 👋 Hi, I’m @yck0173
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-
-<!---
-yck0173/yck0173 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<head>
-    <title>Calendar Example</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달력</title>
+
     <style>
-        body {
+        body{
+            margin: 0 auto;
             text-align: center;
-        }
-
+            
+        } 
         .calendar {
             width: 350px;
-            font-family: Arial, sans-serif;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
 
         .header {
@@ -45,6 +39,7 @@ You can click the Preview link to take a look at your changes.
             display: flex;
             flex-wrap: wrap;
             padding: 2px;
+            
         }
 
         .days .day {
@@ -64,10 +59,7 @@ You can click the Preview link to take a look at your changes.
             background-color: palegreen;
         }
     </style>
-
-</head>
-
-<body>
+    </head>
 
     <body>
         <div class="calendar">
@@ -89,7 +81,6 @@ You can click the Preview link to take a look at your changes.
             <div class="days"></div>
         </div>
     </body>
-
     <script>
         var currentDate = new Date();
 
@@ -103,10 +94,10 @@ You can click the Preview link to take a look at your changes.
             // 요일 요소 가져오기
             var daysContainer = calendar.querySelector('.days');
 
-            // 수행했던 동작을 삭제하고 새로운 달을 화면에 보여준다.
+            // 월 이동을 할 때 수행했던 동작을 삭제하고 새로운 달을 화면에 보여준다.
             header.textContent = '';
             daysContainer.innerHTML = '';
-            
+
             var year = currentDate.getFullYear();
             var month = currentDate.getMonth();
             var date = new Date(year, month);
@@ -120,11 +111,11 @@ You can click the Preview link to take a look at your changes.
             // 해당 월의 첫 번째 날의 인덱스 가져오기
             var firstDayIndex = new Date(year, month, 1).getDay();
 
-            // 월의 첫째 날이 일요일이 아닌 경우 이전 달의 날짜를 렌더링
+            //
             if (firstDayIndex > 0) {
                 var prevMonth = new Date(year, month, 0);
                 var prevMonthDays = prevMonth.getDate();
-                for (var i = firstDayIndex -1; i >= 0; i--) {
+                for (var i = firstDayIndex - 1; i >= 0; i--) {
                     var dayElement = createDayElement(prevMonthDays - i, 'other-month');
                     daysContainer.appendChild(dayElement);
                 }
